@@ -41,6 +41,20 @@
       max-width: 800px;
       /* Prevent the text from being too wide */
     }
+    /* for below cavas content */
+    .description {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Additional spacing to demonstrate scrolling */
+        .spacer {
+            height: 1000px; /* Extra space to show scrolling */
+        }
   </style>
 </head>
 
@@ -48,6 +62,7 @@
   <h1>Birds of a Feather</h1>
   <p>Click in the image to create your birds!</p>
   <script defer src="sketch.69b7368b.js"></script>
+  <div class="description">
   <p>Birds of a Feather is my Final Project for my Postmodern Design Class that highlights a generative art piece
     primarily coded using TypeScript.</p>
   <p> My overall goal of this project was to create an abstract sky scene while incorporating user input. The "birds"
@@ -58,7 +73,9 @@
   <p>While I did code this piece, some of its attributes are left up to "chance,” such as the bird's shapes and colors,
     the background, and even the cloud placements.
     This randomness and the fact that no iteration will be the same, makes this piece Generative.
-  </p>
+  </p></div>
+  <!-- trying to get it to scroll -->
+  <div class="spacer"></div>
 </body>
 
 </html>
