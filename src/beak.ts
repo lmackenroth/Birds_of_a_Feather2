@@ -14,7 +14,6 @@ export class beak extends body {
         y2: number;
         x3: number;
         y3: number;
-        strokeColor: P5Lib.Color;
         fillColor: P5Lib.Color;
     }[] = [];
 
@@ -32,8 +31,9 @@ export class beak extends body {
 
     override draw(): void {
         super.draw()
+        this.p5.noStroke();
         this.beaks.forEach((beak1) => {
-            this.p5.stroke(beak1.strokeColor);
+          
             this.p5.fill(beak1.fillColor);
             this.p5.triangle(
                 beak1.x1, beak1.y1,
@@ -61,21 +61,14 @@ export class beak extends body {
         };
     }
 
-    override setColors(): { fillColor: P5Lib.Color; strokeColor: P5Lib.Color } {
+    override setColors(): { fillColor: P5Lib.Color } {
         return {
             //create fill color
             fillColor: this.p5.color(
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
-                200
-            ),
-            //create stroke color
-            strokeColor: this.p5.color(
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                120
+                150
             )
         };
     }
@@ -90,9 +83,9 @@ export class beak extends body {
         const y = this.birdBody.lastY1;
 
         const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices2(x, y);
-        const { fillColor, strokeColor } = this.setColors();
+        const { fillColor } = this.setColors();
 
-        this.beaks.push({ x1, y1, x2, y2, x3, y3, fillColor, strokeColor });
+        this.beaks.push({ x1, y1, x2, y2, x3, y3, fillColor});
         this.lastX1 = x1;
         this.lastY1 = y1;
 

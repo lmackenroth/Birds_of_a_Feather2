@@ -22,8 +22,8 @@ export default class gradiants {
 
   createColors(index: number) {
     for (let x = 0; x < index; x++) {
-      const color1 = this.p5.color(this.p5.random(0, 200), this.p5.random(0, 20), this.p5.random(0, 200));
-      const color2 = this.p5.color(this.p5.random(0, 200), this.p5.random(20, 100), this.p5.random(0, 200));
+      const color1 = this.p5.color(this.p5.random(0, 125), this.p5.random(0, 20), this.p5.random(0, 125));
+      const color2 = this.p5.color(this.p5.random(126, 250), this.p5.random(126, 250), this.p5.random(126, 250));
       this.colors.push({ color1, color2 })
     }
 

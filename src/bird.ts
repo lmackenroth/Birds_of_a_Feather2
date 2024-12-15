@@ -8,6 +8,6 @@ import P5Lib from 'p5';
 export interface colorfulBirds extends Birds {
      //I want to make methods that will eventually randomize the colors of the shapes
 
-     setColors(): {fillColor: P5Lib.Color; strokeColor: P5Lib.Color};
+     setColors(): {fillColor: P5Lib.Color};
 
 }

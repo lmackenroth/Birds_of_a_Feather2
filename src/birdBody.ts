@@ -12,7 +12,6 @@ export class body implements colorfulBirds {
         y2: number;
         x3: number;
         y3: number;
-        strokeColor: P5Lib.Color;
         fillColor: P5Lib.Color;
     }[] = [];
     //store first coordinate pair for creating a circle later(top vertex)
@@ -25,8 +24,8 @@ export class body implements colorfulBirds {
     }
     //draw function
     draw(): void {
+        this.p5.noStroke();
         this.triangles.forEach((triangle) => {
-            this.p5.stroke(triangle.strokeColor);
             this.p5.fill(triangle.fillColor);
             this.p5.triangle(
                 triangle.x1, triangle.y1,
@@ -52,21 +51,14 @@ export class body implements colorfulBirds {
         };
     }
 
-    setColors(): { fillColor: P5Lib.Color; strokeColor: P5Lib.Color } {
+    setColors(): { fillColor: P5Lib.Color} {
         return {
             //create fill color
             fillColor: this.p5.color(
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
-                200
-            ),
-            //create stroke color
-            strokeColor: this.p5.color(
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                120
+                150
             )
         };
     }
@@ -78,9 +70,9 @@ export class body implements colorfulBirds {
         const size = this.p5.random(5, 10);
 
         const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices(x, y, size);
-        const { fillColor, strokeColor } = this.setColors();
+        const { fillColor } = this.setColors();
 
-        this.triangles.push({ x1, y1, x2, y2, x3, y3, fillColor, strokeColor });
+        this.triangles.push({ x1, y1, x2, y2, x3, y3, fillColor });
         this.lastX1 = x1;
         this.lastY1 = y1;
 

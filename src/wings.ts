@@ -14,7 +14,6 @@ export class wing extends body {
         y2: number;
         x3: number;
         y3: number;
-        strokeColor: P5Lib.Color;
         fillColor: P5Lib.Color;
     }[] = [];
 
@@ -32,8 +31,9 @@ export class wing extends body {
 
     override draw(): void {
         super.draw()
+        this.p5.noStroke();
         this.wings.forEach((wing1) => {
-            this.p5.stroke(wing1.strokeColor);
+            
             this.p5.fill(wing1.fillColor);
             this.p5.triangle(
                 wing1.x1, wing1.y1,
@@ -58,22 +58,17 @@ export class wing extends body {
         };
     }
 
-    override setColors(): { fillColor: P5Lib.Color; strokeColor: P5Lib.Color } {
+    override setColors(): { fillColor: P5Lib.Color } {
         return {
             //create fill color
             fillColor: this.p5.color(
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
                 this.p5.random(0, 255),
-                200
-            ),
-            //create stroke color
-            strokeColor: this.p5.color(
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                this.p5.random(0, 255),
-                120
+                150
             )
+            //create stroke color
+        
         };
     }
 
@@ -87,9 +82,9 @@ export class wing extends body {
         const y = this.birdBody.lastY1;
 
         const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices3(x, y);
-        const { fillColor, strokeColor } = this.setColors();
+        const { fillColor } = this.setColors();
 
-        this.wings.push({ x1, y1, x2, y2, x3, y3, fillColor, strokeColor });
+        this.wings.push({ x1, y1, x2, y2, x3, y3, fillColor});
         this.lastX1 = x1;
         this.lastY1 = y1;
 

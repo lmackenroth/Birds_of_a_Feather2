@@ -1,11 +1,11 @@
 import P5Lib from 'p5'
-
+//heavily based off code from "https://editor.p5js.org/mena-landry/sketches/D7ql4Nd3V" by mena landry to at least get functionality
 export class clouds {
 
     p5: P5Lib;
     cloudx: number;
     cloudy: number;
-    clouds: { x: number, y: number }[] = []
+    clouds: { x: number, y: number }[] = [] //stores each cloud
     index: number;
 
 
@@ -34,12 +34,14 @@ export class clouds {
         this.clouds.forEach((cloud) => {
 
             this.makeCloud(cloud.x, cloud.y);
+            cloud.x += 0.1; // Clouds move to theright
+            if (cloud.x > this.p5.width + 70) { // +70 accounts for cloud width
+                cloud.x = -70; // Reset to left edge
+                cloud.y = this.p5.random(0, this.p5.height); // Optionally randomize the y position
+            }
         });
 
-        // Update cloud positions
-        this.clouds.forEach((cloud) => {
-            cloud.x += 0.1; // Clouds move to theright
-        });
+
     }
 
     // Create a single cloud at a certain position
