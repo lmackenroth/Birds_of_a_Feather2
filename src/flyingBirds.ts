@@ -20,8 +20,8 @@ export class flyingBirds {
         this.birdBeak = new beak(p5, this.birdBody);
         this.birdWing = new wing(p5, this.birdBody);
         this.position = { x, y };
-        //starting velocity is 0!
-        this.velocity = { x: Math.random() * 4 - 2, y: Math.random() * 4 - 2 };
+        //negative to make it go left
+        this.velocity = { x: -Math.random() * 2 - 2, y: Math.random() * 2 - 2 };
     }
     // get all the parts here
     parts() {
