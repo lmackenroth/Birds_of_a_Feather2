@@ -22,8 +22,26 @@ export class flyingBirds{
     }
     // get all the parts here
     parts(){
+        this.birdBody.AddTriangle();
+        if(this.birdBody.lastX1 != null && this.birdBody.lastY1 != null){
+            this.birdHead.AddCircle(this.birdBody.lastX1, this.birdBody.lastY1);
+            this.birdBeak.AddTriangle();
+            this.birdWing.AddTriangle();
+        }else{
+            console.log('problem storing bird')
+    
+        }
 
     }
+    //draw each part
+    draw(){
+        this.birdBeak.draw();
+        this.birdBody.draw();
+        this.birdHead.draw();
+        this.birdWing.draw();
+    }
+
+
 
 
 
