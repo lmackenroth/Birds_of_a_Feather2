@@ -98,6 +98,22 @@ export class beak extends body {
 
         console.log(`Triangle added with vertices: (${x1}, ${y1}), (${x2}, ${y2}), (${x3}, ${y3})`);
     }
+    updatePosition(x: number, y: number): void {
+        this.beaks = this.beaks.map((beak) => {
+            const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices2(x, y);
+            return {
+                ...beak,
+                x1,
+                y1,
+                x2,
+                y2,
+                x3,
+                y3
+            };
+        });
+        console.log(`Updated beak positions to (${x}, ${y})`);
+    }
+    
 
 
 }

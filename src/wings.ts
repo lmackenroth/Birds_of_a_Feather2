@@ -7,7 +7,7 @@ export class wing extends body {
     //i need to set the veticies here
     birdBody: body;
     //initialize trianle object with all verticies and colors
-    public beaks: {
+    public wings: {
         x1: number;
         y1: number;
         x2: number;
@@ -27,26 +27,23 @@ export class wing extends body {
         this.p5 = p5;
         this.birdBody = birdBody; // Initialize birdBody
 
-        console.log('beaks initialized');
+        console.log('wings initialized');
     }
 
     override draw(): void {
         super.draw()
-        this.beaks.forEach((beak1) => {
-            this.p5.stroke(beak1.strokeColor);
-            this.p5.fill(beak1.fillColor);
+        this.wings.forEach((wing1) => {
+            this.p5.stroke(wing1.strokeColor);
+            this.p5.fill(wing1.fillColor);
             this.p5.triangle(
-                beak1.x1, beak1.y1,
-                beak1.x2, beak1.y2,
-                beak1.x3, beak1.y3
+                wing1.x1, wing1.y1,
+                wing1.x2, wing1.y2,
+                wing1.x3, wing1.y3
             );
         });
 
     }
-    beakTri(): void {
 
-
-    }
     private calculateVertices3(x: number, y: number): { x1: number; y1: number; x2: number; y2: number; x3: number; y3: number } {
         return {
             //top vertex
@@ -92,12 +89,27 @@ export class wing extends body {
         const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices3(x, y);
         const { fillColor, strokeColor } = this.setColors();
 
-        this.beaks.push({ x1, y1, x2, y2, x3, y3, fillColor, strokeColor });
+        this.wings.push({ x1, y1, x2, y2, x3, y3, fillColor, strokeColor });
         this.lastX1 = x1;
         this.lastY1 = y1;
 
         console.log(`Triangle added with vertices: (${x1}, ${y1}), (${x2}, ${y2}), (${x3}, ${y3})`);
     }
+    updatePosition(x: number, y: number): void {
+    this.wings = this.wings.map((wing) => {
+        const { x1, y1, x2, y2, x3, y3 } = this.calculateVertices3(x, y);
+        return {
+            ...wing,
+            x1,
+            y1,
+            x2,
+            y2,
+            x3,
+            y3
+        };
+    });
+    console.log(`Updated wing positions to (${x}, ${y})`);
+}
 
 
 }

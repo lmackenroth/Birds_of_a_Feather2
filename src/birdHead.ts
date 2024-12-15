@@ -63,7 +63,14 @@ export class head extends body {
         this.circles.push({ x: xCircle, y: yCircle, fillColor, strokeColor });
         console.log(`Circle added at (${xCircle}, ${yCircle})`);
     }
-    
+    updatePosition(x: number, y: number): void {
+        this.circles = this.circles.map((circle) => ({
+            ...circle,
+            x: x, // New position x
+            y: y  // New position y
+        }));
+        console.log(`Updated circle positions to (${x}, ${y})`);
+    }
 
 }
 

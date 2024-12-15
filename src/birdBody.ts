@@ -88,7 +88,18 @@ export class body implements colorfulBirds {
     }
 
     // Placeholder for future movement logic
-    move(): void {
-        // TODO: Add logic for moving triangles
+    move(dx: number, dy: number): void {
+        this.triangles = this.triangles.map((triangle) => ({
+            ...triangle,
+            x1: triangle.x1 + dx,
+            y1: triangle.y1 + dy,
+            x2: triangle.x2 + dx,
+            y2: triangle.y2 + dy,
+            x3: triangle.x3 + dx,
+            y3: triangle.y3 + dy
+        }));
+
+        if (this.lastX1 !== null) this.lastX1 += dx;
+        if (this.lastY1 !== null) this.lastY1 += dy;
     }
 }

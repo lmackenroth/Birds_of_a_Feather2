@@ -29,7 +29,7 @@ function project(p5: P5Lib) {
         // birdBeak.draw();
         // birdWing.draw();
         birds.forEach(bird => {
-            //bird.update();
+            bird.update();
             bird.draw();
         });
     };
@@ -38,17 +38,6 @@ function project(p5: P5Lib) {
         const newBird = new flyingBirds(p5, p5.mouseX, p5.mouseY); // Create bird at click position
         newBird.parts(); // Add its parts
         birds.push(newBird); // Add to the array
-        // birdBody.AddTriangle();
-        // //had to add the if else statement to handle the case that there are no values to add
-        // //to the addcircle method
-        // if (birdBody.lastX1 !== null && birdBody.lastY1 !== null) {//takes in the top vertex of each triangle
-        //     birdHead.AddCircle(birdBody.lastX1, birdBody.lastY1);
-        //     birdBeak.AddTriangle();
-        //     birdWing.AddTriangle();
-            
-        // } else {
-        //     console.log("Error: No triangle coordinates available for adding a circle.");
-        // }    }
     }
 
 
