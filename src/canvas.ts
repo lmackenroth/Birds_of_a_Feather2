@@ -17,10 +17,7 @@ function project(p5: P5Lib) {
         //figure out how to make it adjust to the of the screen dynamically
         p5.createCanvas(1000, 500);
         gradiant = new gradiants(p5);
-        // birdBody = new body(p5);
-        // birdHead = new head(p5);
-        // birdBeak = new beak(p5, birdBody);
-        // birdWing = new wing(p5, birdBody)
+        gradiant.createColors(5);
     };
     p5.draw = () => {
         gradiant.render(); // Render gradient background
