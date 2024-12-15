@@ -17,7 +17,7 @@ function project(p5: P5Lib) {
         //figure out how to make it adjust to the of the screen dynamically
         p5.createCanvas(1000, 500);
         gradiant = new gradiants(p5);
-        gradiant.createColors(5);
+        gradiant.createColors(10);
     };
     p5.draw = () => {
         gradiant.render(); // Render gradient background
