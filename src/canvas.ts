@@ -16,20 +16,20 @@ function project(p5: P5Lib) {
     // let birdWing: wing;
     let birds: flyingBirds[] = [];
     let cloud: clouds;
+    let cloudCount = 20;
 
     p5.setup = () => {
         //figure out how to make it adjust to the of the screen dynamically
         p5.createCanvas(1000, 500);
         gradiant = new gradiants(p5);
         gradiant.createColors(10);
-        cloud = new clouds(p5);
+        cloud = new clouds(p5, cloudCount);
+        for (let i = 0; i < cloudCount; i++) {
+            cloud.addCloud();
+        }
     };
     p5.draw = () => {
         gradiant.render(); // Render gradient background
-        // birdBody.draw();
-        // birdHead.draw();
-        // birdBeak.draw();
-        // birdWing.draw();
         birds.forEach(bird => {
             bird.update();
             bird.draw();
